@@ -14,15 +14,42 @@ const { asignacion } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Te toca</title>
+    <title>🎁 Te toca</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="Abrí tu regalo del Amigo Invisible 👀. Guardá el secreto 😉"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="🎁 Te toca" />
+    <meta
+      property="og:description"
+      content="Entrá para ver quién te tocó en el Amigo Invisible 😉"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://emojiapi.dev/api/v1/gift/512.png"
+    />
+
+    <!-- Favicon emoji -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,
+      %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E
+        %3Ctext y='0.9em' font-size='90'%3E🎁%3C/text%3E
+      %3C/svg%3E"
+    />
+
     <style>
       :root {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
         color-scheme: dark;
-        /* letra base un poco más grande */
-        font-size: 18px;
+        font-size: 18px; /* Letra más grande */
       }
 
       body {
@@ -49,7 +76,7 @@ const { asignacion } = Astro.props;
 
       .title {
         font-size: clamp(1.9rem, 6vw, 2.6rem);
-        margin: 0 0 1.2rem;
+        margin-bottom: 1.2rem;
       }
 
       .name {
@@ -71,9 +98,6 @@ const { asignacion } = Astro.props;
       }
 
       @media (min-width: 768px) {
-        body {
-          padding: 2.5rem;
-        }
         .card {
           padding: 2.3rem 2.3rem 2.7rem;
         }
@@ -95,20 +119,20 @@ const { asignacion } = Astro.props;
     </div>
 
     <script>
-      // Import dinámico para usar canvas-confetti en el navegador
+      // Confetti dinámico
       import("canvas-confetti").then(({ default: confetti }) => {
         const duration = 2000;
         const end = Date.now() + duration;
 
         (function frame() {
           confetti({
-            particleCount: 10,
+            particleCount: 12,
             angle: 60,
             spread: 55,
             origin: { x: 0 }
           });
           confetti({
-            particleCount: 10,
+            particleCount: 12,
             angle: 120,
             spread: 55,
             origin: { x: 1 }
