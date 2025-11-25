@@ -1,0 +1,127 @@
+---
+import asignaciones from "../../data/amigos.json";
+
+export function getStaticPaths() {
+  return asignaciones.map((a) => ({
+    params: { id: a.codigo },
+    props: { asignacion: a }
+  }));
+}
+
+const { asignacion } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tu amigo invisible</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: radial-gradient(circle at top, #ffb6c1 0, #120418 45%, #050308 100%);
+        color: #fff;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 480px;
+        background: rgba(15, 10, 20, 0.85);
+        border-radius: 1.5rem;
+        padding: 1.75rem 1.5rem 2rem;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        backdrop-filter: blur(12px);
+      }
+
+      .title {
+        font-size: clamp(1.5rem, 5vw, 2.1rem);
+        margin: 0 0 1rem;
+      }
+
+      .label {
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
+        opacity: 0.9;
+      }
+
+      .name {
+        margin: 1.2rem 0 0.5rem;
+        font-size: clamp(2.1rem, 9vw, 3rem);
+        font-weight: 700;
+        letter-spacing: 0.03em;
+      }
+
+      .hint {
+        margin-top: 1.5rem;
+        font-size: clamp(0.95rem, 3.3vw, 1.05rem);
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+
+      .hint strong {
+        font-weight: 600;
+      }
+
+      @media (min-width: 768px) {
+        body {
+          padding: 2.5rem;
+        }
+        .card {
+          padding: 2rem 2.2rem 2.4rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1 class="title">Tu amigo invisible es:</h1>
+
+      <p class="name">{asignacion.amigo}</p>
+
+      <p class="hint">
+        Guardate este secreto, ¿eh?  
+        No lo andes contando por ahí… mientras más sorpresa haya,
+        <strong>más divertido</strong> es para todos 😄
+      </p>
+    </div>
+
+    <script>
+      // Import dinámico para usar canvas-confetti en el navegador
+      import("canvas-confetti").then(({ default: confetti }) => {
+        const duration = 2000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+          confetti({
+            particleCount: 10,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+          });
+          confetti({
+            particleCount: 10,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      });
+    </script>
+  </body>
+</html>

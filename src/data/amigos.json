@@ -1,0 +1,16 @@
+[
+	{ "codigo": "k8p2x", "persona": "Maxi", "amigo": "Marcos" },
+	{ "codigo": "v91lz", "persona": "Trini", "amigo": "Melanie" },
+	{ "codigo": "q7d4m", "persona": "Suegra", "amigo": "Melina" },
+	{ "codigo": "b3k9t", "persona": "Melanie", "amigo": "Maxi" },
+	{ "codigo": "f6s1p", "persona": "Angi", "amigo": "Suegra" },
+	{ "codigo": "z4u8h", "persona": "Juan Cruz", "amigo": "Angi" },
+	{ "codigo": "m2q7c", "persona": "Suegro", "amigo": "Fani" },
+	{ "codigo": "x0e5v", "persona": "Morena", "amigo": "Trini" },
+	{ "codigo": "p9r3j", "persona": "Marcos", "amigo": "Morena" },
+	{ "codigo": "s1y6b", "persona": "Nara", "amigo": "Javier" },
+	{ "codigo": "h4m2z", "persona": "Javier", "amigo": "Suegro" },
+	{ "codigo": "t3c8n", "persona": "Fani", "amigo": "Nara" },
+	{ "codigo": "w7f1q", "persona": "Sergio", "amigo": "Juan Cruz" },
+	{ "codigo": "d5k0u", "persona": "Melina", "amigo": "Sergio" }
+]
